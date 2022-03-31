@@ -1,19 +1,60 @@
 package co.edu.unbosque.controller;
 
 import co.edu.unbosque.model.FileSelect;
-import co.edu.unbosque.view.VentanaPrincipal;
+import co.edu.unbosque.view.VentanaInicio;
 
-public class Controller {
-    private FileSelect e;
-    private VentanaPrincipal v;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Controller implements ActionListener {
+    private FileSelect fi;
+    private VentanaInicio inicio;
+    private boolean arch=false;
+    private String ruta="";
+
     public Controller(){
-        e = new FileSelect();
-        v = new VentanaPrincipal();
-        funcionar();
+        inicio = new VentanaInicio();
+        fi = new FileSelect();
+        asignarOyentes();
     }
 
-    private void funcionar() {
-        v.escribirDato(e.leerArchivo(e.escogerArchivo()));
-        System.exit(0);
+    private void asignarOyentes() {
+    inicio.getPanelInicio().getBoton_archivo().addActionListener(this);
+    inicio.getPanelInicio().getBoton_siguiente().addActionListener(this);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("archivoSelec")) {
+            ruta = fi.escogerArchivo();
+            arch = true;
+            }else if ((e.getActionCommand().equals("SIGUIENTE")) && (arch == true)) {
+            JTextArea textArea = new JTextArea(fi.leerArchivo(ruta));
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            textArea.setLineWrap(true);
+            textArea.setWrapStyleWord(true);
+            scrollPane.setPreferredSize( new Dimension( 500, 500 ) );
+            JOptionPane.showMessageDialog(null, scrollPane, "Texto",JOptionPane.PLAIN_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor seleccione un archivo");
+            }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
