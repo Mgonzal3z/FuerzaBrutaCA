@@ -5,6 +5,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 public class PanelInicio extends JPanel {
+	
     private  JLabel  etiqueta_tit;
     private JButton boton_archivo;
     private JButton boton_siguiente;
@@ -26,13 +27,13 @@ public class PanelInicio extends JPanel {
         add(etiqueta_tit);
 
         boton_archivo = new JButton("<html><p>Seleccionar</p><p>archivo .Txt</p></html>");
-        boton_archivo.setBounds(40, 160, 100, 40);
+        boton_archivo.setBounds(150, 250, 100, 40);
         boton_archivo.setBackground(Color.LIGHT_GRAY);
         boton_archivo.setActionCommand("archivoSelec");
         add(boton_archivo);
 
         boton_siguiente = new JButton("Siguiente");
-        boton_siguiente.setBounds(150, 170, 100, 20);
+        boton_siguiente.setBounds(150, 350, 100, 20);
         boton_siguiente.setBackground(Color.LIGHT_GRAY);
         boton_siguiente.setActionCommand("SIGUIENTE");
         add(boton_siguiente);
