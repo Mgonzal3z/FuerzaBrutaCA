@@ -31,7 +31,7 @@ public class Controller implements ActionListener {
         if (e.getActionCommand().equals("archivoSelec")) {
             ruta = fi.escogerArchivo();
             arch = true;
-            }else if ((e.getActionCommand().equals("SIGUIENTE")) && (arch == true)) {
+            }else if ((e.getActionCommand().equals("SIGUIENTE")) && (arch == true)&&(ruta!="1")) {
             JTextArea textArea = new JTextArea(fi.leerArchivo(ruta));
             JScrollPane scrollPane = new JScrollPane(textArea);
             textArea.setLineWrap(true);

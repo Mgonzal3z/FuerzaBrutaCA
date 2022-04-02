@@ -11,12 +11,18 @@ public class FileSelect {
 
     }
     public String escogerArchivo() {
+        String ruta="";
         JFileChooser j=new JFileChooser();
         j.setAcceptAllFileFilterUsed(false);
         j.addChoosableFileFilter(new FileNameExtensionFilter("Archivo de Texto", "txt"));
         j.showSaveDialog(j);
-        String ruta = j.getSelectedFile().getAbsolutePath();
+        if((j.getSelectedFile())==null) {
+            return "1";
+        }else{
+            ruta = j.getSelectedFile().getAbsolutePath();
+        }
         return ruta;
+
     }
 
     public String leerArchivo(String ruta) {
