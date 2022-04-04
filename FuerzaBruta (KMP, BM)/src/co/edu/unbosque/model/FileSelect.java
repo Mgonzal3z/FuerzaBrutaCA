@@ -11,7 +11,7 @@ public class FileSelect {
 
     }
     public String escogerArchivo() {
-        String ruta="";
+        String ruta="";	
         JFileChooser j=new JFileChooser();
         j.setAcceptAllFileFilterUsed(false);
         j.addChoosableFileFilter(new FileNameExtensionFilter("Archivo de Texto", "txt"));
