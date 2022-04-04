@@ -6,8 +6,9 @@ import java.awt.*;
 
 public class PanelInicio extends JPanel {
 	
-    private  JLabel  etiqueta_tit;
-    private JTextArea input;
+      	private JLabel  etiqueta_tit;
+    	private JLabel etiqueta_texto;
+    	private JTextField input;
 	private JButton boton_archivo;
 	private JButton boton_siguiente;
 	private JButton boton_atras;
@@ -39,9 +40,13 @@ public class PanelInicio extends JPanel {
         boton_siguiente.setActionCommand("SIGUIENTE");
         add(boton_siguiente);
         
-        input = new JTextArea();
-        input.setBounds(40, 200, 140, 30);
+        input = new JTextField();
+        input.setBounds(40, 220, 140, 30);
         add(input);
+        
+        etiqueta_texto = new JLabel("Digite el texto a buscar");
+        etiqueta_texto.setBounds(40, 250, 140, 30);
+        add(etiqueta_texto);
           
         boton_atras = new JButton("Atras");
         boton_atras.setBounds(40, 500, 100, 30);
@@ -75,11 +80,19 @@ public class PanelInicio extends JPanel {
 		this.boton_siguiente = boton_siguiente;
 	}
 
-	public JTextArea getInput() {
+	public JLabel getEtiqueta_texto() {
+		return etiqueta_texto;
+	}
+
+	public void setEtiqueta_texto(JLabel etiqueta_texto) {
+		this.etiqueta_texto = etiqueta_texto;
+	}
+
+	public JTextField getInput() {
 		return input;
 	}
 
-	public void setInput(JTextArea input) {
+	public void setInput(JTextField input) {
 		this.input = input;
 	}
 
