@@ -3,11 +3,10 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class VentanaInicio extends JFrame {
 
-    private PanelInicio pInicio;
+    private PanelKmp pInicio;
     private PanelImagen pim;
 
     public VentanaInicio() {
@@ -26,7 +25,7 @@ public class VentanaInicio extends JFrame {
     }
     public void inicializarComponentes() {
 
-        pInicio =new PanelInicio();
+        pInicio =new PanelKmp();
         pInicio.setBounds(3, 4, 900, 565);
         getContentPane().add(pInicio);
         
@@ -36,10 +35,10 @@ public class VentanaInicio extends JFrame {
 		getLayeredPane().add(pim, new Integer(0), 0);
 
     }
-    public PanelInicio getPanelInicio() {
+    public PanelKmp getPanelInicio() {
         return pInicio;
     }
-    public void setPanelInicio(PanelInicio panelInicio) {
+    public void setPanelInicio(PanelKmp panelInicio) {
         this.pInicio = panelInicio;
     }
 }

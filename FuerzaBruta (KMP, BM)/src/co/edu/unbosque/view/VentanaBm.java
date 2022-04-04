@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 public class VentanaBm extends JFrame {
 
-    private PanelInicio pInicio;
+    private PanelBm pBm;
     private PanelTexto pTexto;
  
     public VentanaBm() {
@@ -26,27 +26,29 @@ public class VentanaBm extends JFrame {
     }
     public void inicializarComponentes() {
 
-        pInicio =new PanelInicio();
-        pInicio.setBounds(0, 2, 350, 565);
-        getContentPane().add(pInicio);
+        pBm =new PanelBm();
+        pBm.setBounds(0, 2, 350, 565);
+        getContentPane().add(pBm);
         
         pTexto = new PanelTexto();
         pTexto.setBounds(350, 2, 550, 565);
         getContentPane().add(pTexto);
   
     }
-	public PanelInicio getpInicio() {
-		return pInicio;
-	}
-	public void setpInicio(PanelInicio pInicio) {
-		this.pInicio = pInicio;
-	}
-	public PanelTexto getpTexto() {
-		return pTexto;
-	}
-	public void setpTexto(PanelTexto pTexto) {
-		this.pTexto = pTexto;
-	}
-    
 
+    public PanelBm getpBm() {
+        return pBm;
+    }
+
+    public void setpBm(PanelBm pBm) {
+        this.pBm = pBm;
+    }
+
+    public PanelTexto getpTexto() {
+        return pTexto;
+    }
+
+    public void setpTexto(PanelTexto pTexto) {
+        this.pTexto = pTexto;
+    }
 }

@@ -5,11 +5,8 @@ import co.edu.unbosque.view.VentanaKmp;
 import co.edu.unbosque.view.VentanaBienvenido;
 import co.edu.unbosque.view.VentanaBm;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 
 public class Controller implements ActionListener {
 	
@@ -34,9 +31,9 @@ public class Controller implements ActionListener {
     ventana_kmp.getpInicio().getBoton_archivo().addActionListener(this);
     ventana_kmp.getpInicio().getBoton_siguiente().addActionListener(this);
     ventana_kmp.getpInicio().getBoton_atras().addActionListener(this);
-    ventana_bm.getpInicio().getBoton_archivo().addActionListener(this);
-    ventana_bm.getpInicio().getBoton_siguiente().addActionListener(this);
-    ventana_bm.getpInicio().getBoton_atras().addActionListener(this);
+    ventana_bm.getpBm().getBoton_archivoBm().addActionListener(this);
+    ventana_bm.getpBm().getBoton_siguienteBm().addActionListener(this);
+    ventana_bm.getpBm().getBoton_atrasBm().addActionListener(this);
     }
 
     @Override
@@ -51,31 +48,29 @@ public class Controller implements ActionListener {
     	}else if(e.getActionCommand().equals("ARCHIVOSELE")) {
     		 	ruta = fi.escogerArchivo();
     		 	arch = true;
-    	}else if ((e.getActionCommand().equals("SIGUIENTE")) && (arch == true)&&(ruta!="1")) {
-    		
+    	}else if(e.getActionCommand().equals("ARCHIVOSELEBM")) {
+			ruta = fi.escogerArchivo();
+			arch = true;
+		}else if ((e.getActionCommand().equals("BUSCAR")) && (arch == true)&&(ruta!="1")) {
     		ventana_kmp.getpTexto().getTexto().append(fi.leerArchivo(ruta));
     		
-    	}else if(e.getActionCommand().equals("ATRAS")) {
+    	}else if ((e.getActionCommand().equals("BUSCARBM")) && (arch == true)&&(ruta!="1")) {
+			ventana_bm.getpTexto().getTexto().append(fi.leerArchivo(ruta));
+
+		}else if(e.getActionCommand().equals("ATRAS")) {
         		 ventana_kmp.setVisible(false);
         		 ventana_bm.setVisible(false);
         		 bienvenido.setVisible(true);
-        } 
-    	else if(e.getActionCommand().equals("BM")) {
-    		bienvenido.setVisible(false);
-    		ventana_kmp.setVisible(false);
-			ventana_bm.setVisible(true);	
-        }else if(e.getActionCommand().equals("ARCHIVOSELE")) {
-    		 	ruta = fi.escogerArchivo();
-    		 	arch = true;
-    	}else if ((e.getActionCommand().equals("SIGUIENTE")) && (arch == true)&&(ruta!="1")) {
-    		
-    		ventana_bm.getpTexto().getTexto().append(fi.leerArchivo(ruta));
-    		
-    	}else if(e.getActionCommand().equals("ATRAS")) {
-    			 ventana_kmp.setVisible(false);
-        		 ventana_bm.setVisible(false);
-        		 bienvenido.setVisible(true);
-        }
+        } else if(e.getActionCommand().equals("ATRASBM")) {
+			ventana_kmp.setVisible(false);
+			ventana_bm.setVisible(false);
+			bienvenido.setVisible(true);
+		}
+		else if(e.getActionCommand().equals("BM")) {
+			bienvenido.setVisible(false);
+			ventana_kmp.setVisible(false);
+			ventana_bm.setVisible(true);
+		}
     	
     	
 	

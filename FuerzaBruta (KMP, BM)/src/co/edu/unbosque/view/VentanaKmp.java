@@ -2,13 +2,11 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class VentanaKmp extends JFrame {
 
-    private PanelInicio pInicio;
+    private PanelKmp pInicio;
     private PanelTexto pTexto;
  
     public VentanaKmp() {
@@ -27,7 +25,7 @@ public class VentanaKmp extends JFrame {
     }
     public void inicializarComponentes() {
 
-        pInicio =new PanelInicio();
+        pInicio =new PanelKmp();
         pInicio.setBounds(0, 2, 350, 565);
         getContentPane().add(pInicio);
         
@@ -36,10 +34,10 @@ public class VentanaKmp extends JFrame {
         getContentPane().add(pTexto);
   
     }
-	public PanelInicio getpInicio() {
+	public PanelKmp getpInicio() {
 		return pInicio;
 	}
-	public void setpInicio(PanelInicio pInicio) {
+	public void setpInicio(PanelKmp pInicio) {
 		this.pInicio = pInicio;
 	}
 	public PanelTexto getpTexto() {
