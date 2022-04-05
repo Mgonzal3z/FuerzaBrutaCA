@@ -33,6 +33,7 @@ public class VentanaBm extends JFrame {
         pTexto = new PanelTexto();
         pTexto.setBounds(350, 2, 550, 565);
         getContentPane().add(pTexto);
+
   
     }
 

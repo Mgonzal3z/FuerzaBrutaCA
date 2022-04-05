@@ -8,6 +8,8 @@ public class PanelBm extends JPanel {
 
     private JLabel  etiqueta_tit;
     private JLabel etiqueta_texto;
+    private JLabel  etiqueta_vecesBm;
+    private JLabel etiqueta_bm;
     private JTextField input2;
     private JButton boton_archivoBm;
     private JButton boton_siguienteBm;
@@ -48,6 +50,14 @@ public class PanelBm extends JPanel {
         etiqueta_texto.setBounds(40, 160, 140, 30);
         add(etiqueta_texto);
 
+        etiqueta_vecesBm = new JLabel("La palabra se repite: ");
+        etiqueta_vecesBm.setBounds(40, 300, 140, 30);
+        add(etiqueta_vecesBm);
+
+        etiqueta_bm = new JLabel("");
+        etiqueta_bm.setBounds(200, 300, 140, 30);
+        add(etiqueta_bm);
+
         boton_atrasBm = new JButton("Atras");
         boton_atrasBm.setBounds(40, 500, 100, 30);
         boton_atrasBm.setBackground(Color.LIGHT_GRAY);
@@ -58,6 +68,22 @@ public class PanelBm extends JPanel {
 
     public JLabel getEtiqueta_tit() {
         return etiqueta_tit;
+    }
+
+    public JLabel getEtiqueta_vecesBm() {
+        return etiqueta_vecesBm;
+    }
+
+    public void setEtiqueta_vecesBm(JLabel etiqueta_vecesBm) {
+        this.etiqueta_vecesBm = etiqueta_vecesBm;
+    }
+
+    public JLabel getEtiqueta_bm() {
+        return etiqueta_bm;
+    }
+
+    public void setEtiqueta_bm(JLabel etiqueta_bm) {
+        this.etiqueta_bm = etiqueta_bm;
     }
 
     public void setEtiqueta_tit(JLabel etiqueta_tit) {

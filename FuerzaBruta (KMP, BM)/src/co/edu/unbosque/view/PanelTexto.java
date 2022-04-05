@@ -14,11 +14,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.DefaultHighlighter;
 
 public class PanelTexto extends JPanel {
 	
 	private JTextArea texto;
 	private JScrollPane scroll;
+	private DefaultHighlighter.DefaultHighlightPainter highlight;
+
 	public PanelTexto() {
 		setLayout(null);
         inicializarComponentes();
@@ -37,9 +40,17 @@ public class PanelTexto extends JPanel {
 		scroll = new JScrollPane(texto);
 		scroll.setBounds(5, 20, 500, 555);
 		add(scroll);
+
+		highlight = new DefaultHighlighter.DefaultHighlightPainter(Color.yellow);
 			
 	}
+	public DefaultHighlighter.DefaultHighlightPainter getHighlight() {
+		return highlight;
+	}
 
+	public void setHighlight(DefaultHighlighter.DefaultHighlightPainter highlight) {
+		this.highlight = highlight;
+	}
 
 	public JTextArea getTexto() {
 		return texto;
