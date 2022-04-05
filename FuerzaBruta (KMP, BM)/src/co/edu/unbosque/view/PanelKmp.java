@@ -2,28 +2,54 @@ package co.edu.unbosque.view;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultHighlighter;
-import javax.swing.text.Highlighter;
 
 import java.awt.*;
-
+/**
+ * Clase panelKmp, consta del método inicializarComponentes y del constructor
+ * @autor Yilber Rojas
+ * @autor Miguel Gonzales
+ */
 public class PanelKmp extends JPanel {
-	
+	/**
+	 * Objeto de JLabel
+	 */
     private JLabel  etiqueta_tit;
+	/**
+	 * Objeto de JLabel
+	 */
    	private JLabel etiqueta_texto;
+	/**
+	 * Objeto de JLabel
+	 */
    	private JLabel etiqueta_repetido;
+	/**
+	 * Objeto de JTextField
+	 */
     private JTextField input;
+	/**
+	 * Objeto de JButton
+	 */
 	private JButton boton_archivo;
+	/**
+	 * Objeto de JButton
+	 */
 	private JButton boton_siguiente;
+	/**
+	 * Objeto de JButton
+	 */
 	private JButton boton_atras;
-
+	/**
+	 * Método constructor de la clase PanelKmp
+	 */
     public PanelKmp() {
         setLayout(null);
         inicializarComponentes();
         setVisible(true);
     }
 
+	/**
+	 * Método inicializar componentes de la clase panelKmp
+	 */
     private void inicializarComponentes() {
 
         setBackground(Color.WHITE);
@@ -64,7 +90,7 @@ public class PanelKmp extends JPanel {
         add(boton_atras);
 
     }
-    
+    //getters and setters
 
 	public JLabel getEtiqueta_tit() {
 		return etiqueta_tit;

@@ -4,20 +4,24 @@ import co.edu.unbosque.view.VentanaBm;
 
 import java.util.ArrayList;
 /**
- * Clase Bm consta  del método search, del método badCharHeuristic y del método veces.
+ * Clase Bm consta  del método search, del método badCharHeuristic, del método max y del método veces.
  * implementación del algorimo Boyer Moore
  * @author Yilber Rojas
- * @author Miguel Sánchez
+ * @author Miguel Gonzales
  */
 public class Bm {
-    private VentanaBm ventana_bm;
-
+    /**
+     * Objeto de tipo int
+     */
     static int NO_OF_CHARS = 10000;
+    /**
+     * Método max de la clase Bm
+     * @param a Número entero
+     * @param b Número entero
+     * @return Mayor de los números ingresados
+     */
     static int max(int a, int b) {
         return (a > b) ? a : b;
-    }
-    public Bm(){
-        ventana_bm = new VentanaBm();
     }
 
     /**

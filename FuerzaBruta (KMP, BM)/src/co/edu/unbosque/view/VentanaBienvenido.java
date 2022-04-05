@@ -6,18 +6,36 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+/**
+ * Clase VentanaBienvenido, consta del método constructor, del método inicializarComponentes.
+ * @autor Yilber Rojas
+ * @autor Miguel Gonzales
+ */
 public class VentanaBienvenido extends JFrame {
-	
+	/**
+	 * Objeto de PanelImagen que permite acceder a sus atributos y métodos
+	 */
 	private PanelImagen pim;
-//	private PanelBienvenido bienvenido;
-	
+	/**
+	 * Objeto de ImageIcon que permite acceder a sus atributos y métodos
+	 */
 	private ImageIcon ImagenBienvenida;
+	/**
+	 * Objeto de JLabel
+	 */
 	private JLabel bienvenida;
-	
+	/**
+	 * Objeto de JButton
+	 */
 	private JButton boton_kmp;
+	/**
+	 * Objeto de JButton
+	 */
 	private JButton boton_bm;
-	
+
+	/**
+	 * Método Constructor de la clase VentanaBienvenido
+	 */
 	public VentanaBienvenido() {
 		setTitle("Bienvenido");
         setSize(400,450);
@@ -32,6 +50,9 @@ public class VentanaBienvenido extends JFrame {
         setVisible(true);
         
     }
+	/**
+	 * Método inicializarComponentes de la clase VentanaBienvenido
+	 */
 	public void inicializarComponentes() {
         	
 		boton_kmp = new JButton("Kmp");
@@ -54,7 +75,7 @@ public class VentanaBienvenido extends JFrame {
 		add(pim);
 
     }
-
+	//getters and setters
 	public ImageIcon getImagenBienvenida() {
 		return ImagenBienvenida;
 	}

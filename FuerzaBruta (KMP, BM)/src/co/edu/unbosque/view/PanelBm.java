@@ -2,21 +2,55 @@ package co.edu.unbosque.view;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+/**
+ * Clase PanelBm, consta del método constructor, del método inicializarComponentes.
+ * @autor Yilber Rojas
+ * @autor Miguel Gonzales
+ */
 public class PanelBm extends JPanel {
-
+    /**
+     * Objeto de JLabel
+     */
     private JLabel  etiqueta_tit;
+    /**
+     * Objeto de JLabel
+     */
     private JLabel etiqueta_texto;
+    /**
+     * Objeto de JLabel
+     */
     private JLabel  etiqueta_vecesBm;
+    /**
+     * Objeto de JLabel
+     */
     private JLabel etiqueta_bm;
+    /**
+     * Objeto de JTextField
+     */
     private JTextField input2;
+    /**
+     * Objeto de JButton
+     */
     private JButton boton_archivoBm;
+    /**
+     * Objeto de JButton
+     */
     private JButton boton_siguienteBm;
+    /**
+     * Objeto de JButton
+     */
     private JButton boton_atrasBm;
+    /**
+     * Método constructor de la clase PanelKmp
+     */
     public PanelBm() {
         setLayout(null);
         inicializarComponentes();
         setVisible(true);
     }
+    /**
+     * Método inicializar componentes de la clase panelBm
+     */
     private void inicializarComponentes() {
         setBackground(Color.WHITE);
         setBorder(new TitledBorder("Seleccion archivo"));
@@ -54,6 +88,8 @@ public class PanelBm extends JPanel {
         boton_atrasBm.setActionCommand("ATRASBM");
         add(boton_atrasBm);
     }
+    //Getters and Setters
+
     public JLabel getEtiqueta_tit() {
         return etiqueta_tit;
     }

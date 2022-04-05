@@ -6,12 +6,23 @@ import javax.swing.JFrame;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
-
+/**
+ * Clase VentanaKmp, consta del método constructor, del método inicializarComponentes.
+ * @autor Yilber Rojas
+ * @autor Miguel Gonzales
+ */
 public class VentanaKmp extends JFrame {
-
+    /**
+     * Objeto de PanelKmp que permite acceder a sus atributos y métodos
+     */
     private PanelKmp pInicio;
+    /**
+     * Objeto de PanelTexto que permite acceder a sus atributos y métodos
+     */
     private PanelTexto pTexto;
- 
+    /**
+     * Método Constructor de la clase VentanaKmp
+     */
     public VentanaKmp() {
         setTitle("FuerzaBruta");
         setSize(900,600);
@@ -26,6 +37,9 @@ public class VentanaKmp extends JFrame {
         setLocationRelativeTo(null);
         setVisible(false);
     }
+    /**
+     * Método inicializarComponentes de la clase VentanaKmp
+     */
     public void inicializarComponentes() {
 
         pInicio =new PanelKmp();
@@ -38,7 +52,7 @@ public class VentanaKmp extends JFrame {
   
     }
     
-    
+    //Getters and Setters
 	public PanelKmp getpInicio() {
 		return pInicio;
 	}
@@ -51,8 +65,4 @@ public class VentanaKmp extends JFrame {
 	public void setpTexto(PanelTexto pTexto) {
 		this.pTexto = pTexto;
 	}
-	
-    
-    
-   
 }

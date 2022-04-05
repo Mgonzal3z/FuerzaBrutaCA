@@ -4,9 +4,9 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 /**
- * Clase FileSelect consta  del escogerArchivo y del método leerArchivo.
+ * Clase FileSelect consta  del método escogerArchivo y del método leerArchivo.
  * @author Yilber Rojas
- * @author Miguel Sánchez
+ * @author Miguel Gonzales
  */
 
 public class FileSelect {
@@ -32,6 +32,9 @@ public class FileSelect {
 
     }
 
+    /**
+     * Método leerArchivo de la clase FileSelect que permite la lectura del archivo .txt
+     */
     public String leerArchivo(String ruta) {
         String linea = "";
         String cadena = "";

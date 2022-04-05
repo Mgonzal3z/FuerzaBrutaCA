@@ -4,12 +4,23 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
+/**
+ * Clase VentanaBm, consta del método constructor, del método inicializarComponentes.
+ * @autor Yilber Rojas
+ * @autor Miguel Gonzales
+ */
 public class VentanaBm extends JFrame {
-
+    /**
+     * Objeto de PanelBm que permite acceder a sus atributos y métodos
+     */
     private PanelBm pBm;
+    /**
+     * Objeto de PanelTexto que permite acceder a sus atributos y métodos
+     */
     private PanelTexto pTexto;
- 
+    /**
+     * Método Constructor de la clase VentanaBm
+     */
     public VentanaBm() {
         setTitle("FuerzaBruta");
         setSize(900,600);
@@ -23,7 +34,9 @@ public class VentanaBm extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         setVisible(false);
-    }
+    }/**
+     * Método inicializarComponentes de la clase VentanaBm
+     */
     public void inicializarComponentes() {
 
         pBm =new PanelBm();
@@ -35,7 +48,7 @@ public class VentanaBm extends JFrame {
         getContentPane().add(pTexto);
   
     }
-
+    //Getters and Setters
     public PanelBm getpBm() {
         return pBm;
     }
