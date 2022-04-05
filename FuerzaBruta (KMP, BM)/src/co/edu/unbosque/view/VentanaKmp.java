@@ -3,6 +3,9 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.Highlighter;
 
 public class VentanaKmp extends JFrame {
 
@@ -34,6 +37,8 @@ public class VentanaKmp extends JFrame {
         getContentPane().add(pTexto);
   
     }
+    
+    
 	public PanelKmp getpInicio() {
 		return pInicio;
 	}

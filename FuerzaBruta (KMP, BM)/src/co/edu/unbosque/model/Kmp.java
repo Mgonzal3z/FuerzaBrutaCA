@@ -1,5 +1,6 @@
 package co.edu.unbosque.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Kmp {
@@ -8,7 +9,7 @@ public class Kmp {
 		
 	}
 	
-	public int kmpBusqueda(String input, String archivo) {
+	public int kmpRepetido(String input, String archivo) {
 		
 		int A = input.length();
 		int B = archivo.length();
@@ -16,7 +17,7 @@ public class Kmp {
 		int lps[] = new int[A];
 		int j = 0;
 		
-		computeLPSArray(input, A, lps);
+		lpsArray(input, A, lps);
 		
 		int i = 0;
 		while(i < B) {
@@ -37,20 +38,22 @@ public class Kmp {
 					i = i +1;
 			}
 		}
+		
 		return repetido;
 		
 	}
 	
-	public String kmpResaltar(String input, String archivo) {
+	public ArrayList<Integer> kmpBusqueda(String input, String archivo) {
 		
 		int A = input.length();
 		int B = archivo.length();
 		String resaltar = "";
 		int repetido = 0;
+		ArrayList<Integer> cadena = new ArrayList<>();	
 		int lps[] = new int[A];
 		int j = 0;
 		
-		computeLPSArray(input, A, lps);
+		lpsArray(input, A, lps);
 		
 		int i = 0;
 		while(i < B) {
@@ -59,9 +62,9 @@ public class Kmp {
 				i++;
 			}
 			if(j == A) {
-				//System.out.println("Found pattern" + " at index"+ (i-j));
+				//System.out.println("Patron encontrado en posicion "+ (i-j));
 				repetido++;
-				resaltar = "" + lps[repetido];
+				cadena.add(i-j);
 				j = lps[j-1];
 			}
 			
@@ -72,11 +75,12 @@ public class Kmp {
 					i = i +1;
 			}
 		}
-		return resaltar;
+		//for(int aux = 0; i < cadena.size(); i++) {
+		return cadena;
 		
 	}
 	
-	public void computeLPSArray(String input, int A, int lps[]) {
+	public void lpsArray(String input, int A, int lps[]) {
 		
 		int len = 0;
 		int i = 1;

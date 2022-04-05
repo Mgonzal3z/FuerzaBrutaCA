@@ -2,6 +2,10 @@ package co.edu.unbosque.view;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.Highlighter;
+
 import java.awt.*;
 
 public class PanelKmp extends JPanel {
@@ -60,6 +64,7 @@ public class PanelKmp extends JPanel {
         add(boton_atras);
 
     }
+    
 
 	public JLabel getEtiqueta_tit() {
 		return etiqueta_tit;
