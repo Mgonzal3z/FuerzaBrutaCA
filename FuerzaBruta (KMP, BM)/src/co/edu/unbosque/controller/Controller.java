@@ -1,6 +1,7 @@
 package co.edu.unbosque.controller;
 
 import co.edu.unbosque.model.FileSelect;
+import co.edu.unbosque.model.Kmp;
 import co.edu.unbosque.view.VentanaKmp;
 import co.edu.unbosque.view.VentanaBienvenido;
 import co.edu.unbosque.view.VentanaBm;
@@ -10,6 +11,7 @@ import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener {
 	
+	private Kmp kmp;
 	private VentanaKmp ventana_kmp;
 	private VentanaBm ventana_bm;
 	private VentanaBienvenido bienvenido;
@@ -18,6 +20,7 @@ public class Controller implements ActionListener {
     private String ruta="";
 
     public Controller(){
+    	kmp = new Kmp();
     	bienvenido = new VentanaBienvenido();
         ventana_kmp = new VentanaKmp();
         ventana_bm = new VentanaBm();
@@ -52,7 +55,12 @@ public class Controller implements ActionListener {
 			ruta = fi.escogerArchivo();
 			arch = true;
 		}else if ((e.getActionCommand().equals("BUSCAR")) && (arch == true)&&(ruta!="1")) {
+			String rut = fi.leerArchivo(ruta);
+			String input = ventana_kmp.getpInicio().getInput().getText();
+			//System.out.println(kmp.kmpBusqueda(input, rut));
+			ventana_kmp.getpInicio().getEtiqueta_repetido().setText("Su busqueda se repite " + kmp.kmpBusqueda(input, rut)+ " veces");
     		ventana_kmp.getpTexto().getTexto().append(fi.leerArchivo(ruta));
+    		System.out.println(kmp.kmpResaltar(input, rut));
     		
     	}else if ((e.getActionCommand().equals("BUSCARBM")) && (arch == true)&&(ruta!="1")) {
 			ventana_bm.getpTexto().getTexto().append(fi.leerArchivo(ruta));

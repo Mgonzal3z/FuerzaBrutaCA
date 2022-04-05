@@ -6,9 +6,10 @@ import java.awt.*;
 
 public class PanelKmp extends JPanel {
 	
-      	private JLabel  etiqueta_tit;
-    	private JLabel etiqueta_texto;
-    	private JTextField input;
+    private JLabel  etiqueta_tit;
+   	private JLabel etiqueta_texto;
+   	private JLabel etiqueta_repetido;
+    private JTextField input;
 	private JButton boton_archivo;
 	private JButton boton_siguiente;
 	private JButton boton_atras;
@@ -47,6 +48,10 @@ public class PanelKmp extends JPanel {
         etiqueta_texto = new JLabel("Digite el texto a buscar");
         etiqueta_texto.setBounds(40, 160, 140, 30);
         add(etiqueta_texto);
+        
+        etiqueta_repetido = new JLabel("");
+        etiqueta_repetido.setBounds(40, 300, 300, 30);
+        add(etiqueta_repetido);
           
         boton_atras = new JButton("Atras");
         boton_atras.setBounds(40, 500, 100, 30);
@@ -103,6 +108,16 @@ public class PanelKmp extends JPanel {
 	public void setBoton_atras(JButton boton_atras) {
 		this.boton_atras = boton_atras;
 	}
+
+	public JLabel getEtiqueta_repetido() {
+		return etiqueta_repetido;
+	}
+
+	public void setEtiqueta_repetido(JLabel etiqueta_repetido) {
+		this.etiqueta_repetido = etiqueta_repetido;
+	}
+	
+	
     
     
 
