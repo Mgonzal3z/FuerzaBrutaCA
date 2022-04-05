@@ -3,13 +3,20 @@ package co.edu.unbosque.model;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
-
+/**
+ * Clase FileSelect consta  del escogerArchivo y del método leerArchivo.
+ * @author Yilber Rojas
+ * @author Miguel Sánchez
+ */
 
 public class FileSelect {
 
     void FileSelect(){
 
     }
+    /**
+     * Método escogerArchivo de la clase FileSelect que permite elegir cualquer archivo .txt
+     */
     public String escogerArchivo() {
         String ruta="";	
         JFileChooser j=new JFileChooser();

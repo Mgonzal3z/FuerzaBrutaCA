@@ -10,8 +10,6 @@ import co.edu.unbosque.view.VentanaBm;
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
-import javax.swing.text.Highlighter;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,8 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class Controller implements ActionListener {
-
-	private Kmp kmp;
+	
 	private VentanaKmp ventana_kmp;
 	private VentanaBm ventana_bm;
 	private VentanaBienvenido bienvenido;
@@ -29,9 +26,9 @@ public class Controller implements ActionListener {
     private boolean arch=false;
     private String ruta="";
 	private Bm bm;
+	private Kmp kmp;
 
     public Controller(){
-    	kmp = new Kmp();
     	bienvenido = new VentanaBienvenido();
         ventana_kmp = new VentanaKmp();
         ventana_bm = new VentanaBm();
@@ -42,21 +39,21 @@ public class Controller implements ActionListener {
     }
 
     private void asignarOyentes() {
-        bienvenido.getBoton_kmp().addActionListener(this);
-        bienvenido.getBoton_bm().addActionListener(this);
-        ventana_kmp.getpInicio().getBoton_archivo().addActionListener(this);
-        ventana_kmp.getpInicio().getBoton_siguiente().addActionListener(this);
-        ventana_kmp.getpInicio().getBoton_atras().addActionListener(this);
-        ventana_bm.getpBm().getBoton_archivoBm().addActionListener(this);
-        ventana_bm.getpBm().getBoton_siguienteBm().addActionListener(this);
-        ventana_bm.getpBm().getBoton_atrasBm().addActionListener(this);
-        }
+    bienvenido.getBoton_kmp().addActionListener(this);
+    bienvenido.getBoton_bm().addActionListener(this);
+    ventana_kmp.getpInicio().getBoton_archivo().addActionListener(this);
+    ventana_kmp.getpInicio().getBoton_siguiente().addActionListener(this);
+    ventana_kmp.getpInicio().getBoton_atras().addActionListener(this);
+    ventana_bm.getpBm().getBoton_archivoBm().addActionListener(this);
+    ventana_bm.getpBm().getBoton_siguienteBm().addActionListener(this);
+    ventana_bm.getpBm().getBoton_atrasBm().addActionListener(this);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    	
-    	
-    	if (e.getActionCommand().equals("KMP")) {
+
+
+		if (e.getActionCommand().equals("KMP")) {
 			bienvenido.setVisible(false);
 			ventana_bm.setVisible(false);
 			ventana_kmp.setVisible(true);
@@ -67,16 +64,24 @@ public class Controller implements ActionListener {
 		} else if (e.getActionCommand().equals("ARCHIVOSELEBM")) {
 			ruta = fi.escogerArchivo();
 			arch = true;
+			ventana_bm.getpTexto().getTexto().append(fi.leerArchivo(ruta));
 		} else if ((e.getActionCommand().equals("BUSCAR")) && (arch == true) && (ruta != "1")) {
 			String txt = fi.leerArchivo(ruta);
-			String input = ventana_kmp.getpInicio().getInput().getText();
-			ventana_kmp.getpInicio().getEtiqueta_repetido().setText("Su busqueda se repite " + kmp.kmpRepetido(input, txt)+ " veces");
-			ventana_kmp.getpTexto().getTexto().append(fi.leerArchivo(ruta));
+
 		} else if ((e.getActionCommand().equals("BUSCARBM")) && (arch == true) && (ruta != "1")) {
 			char txt[] = (fi.leerArchivo(ruta)).toLowerCase().toCharArray();
 			char pat[] = (ventana_bm.getpBm().getInput2().getText()).toLowerCase().toCharArray();
 			ventana_bm.getpBm().getEtiqueta_bm().setText(bm.veces(txt, pat) + "");
-			ventana_bm.getpTexto().getTexto().append(fi.leerArchivo(ruta));
+			ArrayList<Integer> array= new ArrayList<>();
+			array= (ArrayList<Integer>) bm.search(txt, pat).clone();
+			for(int i=0;i<array.size();i++){
+				try {
+
+					ventana_bm.getpTexto().getTexto().getHighlighter().addHighlight(array.get(i),ventana_bm.getpBm().getInput2().getText().length()+array.get(i),new DefaultHighlighter.DefaultHighlightPainter(Color.red));
+				} catch (BadLocationException ex) {
+					ex.printStackTrace();
+				}
+			}
 
 		} else if (e.getActionCommand().equals("ATRAS")) {
 			ventana_kmp.setVisible(false);
@@ -91,49 +96,8 @@ public class Controller implements ActionListener {
 			ventana_kmp.setVisible(false);
 			ventana_bm.setVisible(true);
 		}
-
-
-
-
-
-
-
-
-//        if (e.getActionCommand().equals("archivoSelec")) {
-//            ruta = fi.escogerArchivo();
-//            arch = true;
-//            }else if ((e.getActionCommand().equals("SIGUIENTE")) && (arch == true)&&(ruta!="1")) {
-//            JTextArea textArea = new JTextArea(fi.leerArchivo(ruta));
-//            JScrollPane scrollPane = new JScrollPane(textArea);
-//            textArea.setLineWrap(true);
-//            textArea.setWrapStyleWord(true);
-//            scrollPane.setPreferredSize( new Dimension( 500, 500 ) );
-//            JOptionPane.showMessageDialog(null, scrollPane, "Texto",JOptionPane.PLAIN_MESSAGE);
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Por favor seleccione un archivo");
-//            }
-
-
-    }
 	}
-
-    
-//    public void resaltar() {
-//    	String input = ventana_kmp.getpTexto().getTexto().toString();
-//    	ArrayList<Integer> coincide = new ArrayList<Integer>();
-//    	coincide = kmp.kmpBusqueda(input, ruta);
-//    	//Highlighter.HighlightPainter resaltar = new DefaultHighlighter.DefaultHighlightPainter(Color.BLACK);
-//    	Highlighter color = ventana_kmp.getpTexto().getHighlighter();
-//    	int inicio, end;
-//    	for(int i = 0; i < coincide.size(); i++) {
-//    		inicio = coincide.get(i);
-//    		end = coincide.get(i) + input.length();
-//    		if(inicio != 1) {
-//    			ventana_kmp.getpTexto().resaltar(inicio, end, color);
-//    		}
-//    				
-//    	}
-//    }
+}
 
 
 

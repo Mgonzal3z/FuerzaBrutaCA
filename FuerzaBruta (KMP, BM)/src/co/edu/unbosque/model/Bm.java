@@ -3,7 +3,12 @@ package co.edu.unbosque.model;
 import co.edu.unbosque.view.VentanaBm;
 
 import java.util.ArrayList;
-
+/**
+ * Clase Bm consta  del método search, del método badCharHeuristic y del método veces.
+ * implementación del algorimo Boyer Moore
+ * @author Yilber Rojas
+ * @author Miguel Sánchez
+ */
 public class Bm {
     private VentanaBm ventana_bm;
 
@@ -15,6 +20,12 @@ public class Bm {
         ventana_bm = new VentanaBm();
     }
 
+    /**
+     * Método badCharHeuristic de la clase Bm
+     * @param str Arreglo de caracteres que contiene el texto a buscar
+     * @param size Número entero que indica el tamaño de la cadena
+     * @param badchar Arreglo de numeros enteros
+     */
     public void badCharHeuristic(char[] str, int size, int badchar[]) {
         int i;
         for (i = 0; i < NO_OF_CHARS; i++)
@@ -23,6 +34,11 @@ public class Bm {
             badchar[(int) str[i]] = i;
     }
 
+    /**
+     * Método buscar de la clase Bm, que devuelve las veces que aparece el pat
+     * @param txt Arreglo de caracteres que contiene el texto donde se hace la busqueda
+     * @param pat Arreglo de caracteres que contiene el texto a buscar
+     */
     public int veces(char[] txt, char[] pat) {
         int m = pat.length;
         int n = txt.length;
@@ -42,6 +58,11 @@ public class Bm {
         }
         return cont;
     }
+    /**
+     * Método buscar de la clase Bm, que devuelve las posiciones del pat
+     * @param txt Arreglo de caracteres que contiene el texto donde se hace la busqueda
+     * @param pat Arreglo de caracteres que contiene el texto a buscar
+     */
     public ArrayList<Integer> search(char[] txt, char[] pat) {
         ArrayList<Integer> resul = new ArrayList<Integer>();
         int m = pat.length;
